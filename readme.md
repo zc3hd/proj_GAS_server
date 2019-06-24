@@ -59,7 +59,7 @@
 
   * 整理GAS项目的核心文件，形成步骤文件，且有配置文件：
 
-    ![](./src_webapp/md_imgs/001.png)
+    ![](./assets/001.png)
 
 
 

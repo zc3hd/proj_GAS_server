@@ -1,6 +1,9 @@
 /*
-本文件为数据本地计算的入口文件，执行 删除、计算、保存；
+本文件为数据本地计算的入口文件，
+执行 删除、计算、保存；
 执行完成后，把数据保存到数据库内部；
+
+主要是周期数据的计算和储存；等待 data_api.js 调用；
 */
 
 
@@ -35,15 +38,18 @@ Module.prototype = {
     // 
     // 删除数据库记录
     me._init_remove()
+      // 初始化 新增数据 计算数据
       .then(function() {
-        // 初始化一个数据 新增
         return me._init_add();
       })
+      // 更新 数据库、本地JS数据
       .then(function() {
-        // 本地更新数据
         me._init_upd();
       });
   },
+
+
+
   //  删除
   _init_remove: function() {
     var me = this;
@@ -69,7 +75,7 @@ Module.prototype = {
           // 生成一条数据
           Data._id = data._id;
 
-          // 生成数据
+          // *******************计算数据
           // 一个周期内的天数
           var Cycle_numb = require('./GAS_1_cycle.js');
           new Cycle_numb().init();
