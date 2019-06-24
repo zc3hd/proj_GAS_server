@@ -33,7 +33,6 @@ function API(app) {
 
   // post应该放在内部，不然就没有设置post
   app.use(bodyParser.urlencoded({ extended: false }));
-  // app.use(bodyParser.json());
 
   // 开启跨域模式
   app.all('*', function(req, res, next) {
@@ -54,11 +53,10 @@ function API(app) {
   var GAS_data = require('./GAS/GAS.js');
   new GAS_data().init();
 
+
   // Data_api输出
   var Data_api = require('./modules/data_api.js');
   new Data_api(app).init();
-
-
 }
 
 
@@ -71,7 +69,6 @@ app.use(express.static(path.join(__dirname, '../webapp/')));
 API(app);
 
 
-// app.listen(conf.api_port);
 http.listen(conf.api_port, function() {
   console.log('app服务 启动在：' + conf.api_port);
 });

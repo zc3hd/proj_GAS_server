@@ -27,7 +27,6 @@ function Module() {
 
     // 一周的时间戳
     week: [],
-
   };
 
 }
@@ -64,7 +63,7 @@ Module.prototype = {
       _get_active: function() {
         return FN.f_str_miao(FN.formatterDateDay(new Date(), 1));
       },
-      // 计算一周的时间戳
+      // 计算一周的时间戳对象，全部要提交
       _get_week: function() {
         var one = null;
         me.all.week.length = 0;

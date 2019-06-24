@@ -23,19 +23,20 @@ Module.prototype = {
     // 本地周期数据初始化
     me._init_once();
 
-
+    // 周期个24小时，轮询
     setInterval(function() {
       me._init_once();
     }, conf.c_max * 24 * 3000 * 1000);
+
   },
   // 执行一次
   _init_once: function() {
     var me = this;
     // 
-    // 删除
+    // 删除数据库记录
     me._init_remove()
       .then(function() {
-        // 计算
+        // 初始化一个数据 新增
         return me._init_add();
       })
       .then(function() {
