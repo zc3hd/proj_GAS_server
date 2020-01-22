@@ -1,0 +1,114 @@
+h1 {
+  color: #fff;
+}
+.set_base .row .item {
+  margin-bottom: 3px;
+}
+.cycle .row .item {
+  margin-bottom: 3px;
+}
+.cycle .row .sum {
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+}
+.cycle .cycle_data {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  overflow: hidden;
+  padding: 0 3px 10px 7px;
+}
+.cycle .cycle_data .col {
+  float: left;
+  margin-top: 10px;
+  padding: 2px;
+}
+.cycle .cycle_data .col .r {
+  width: 15px;
+  height: 15px;
+  background-color: #bdbdbd;
+  border-radius: 1px;
+  margin-top: 3px;
+  cursor: pointer;
+  transition: all 0.1s;
+}
+.cycle .cycle_data .col .r:first-child {
+  margin-top: 0px;
+}
+.cycle .cycle_data .col .r_new_1 {
+  background-color: #458a00;
+}
+.cycle .cycle_data .col .r_old_1 {
+  background-color: #707070;
+}
+.client .client_list .item {
+  margin-top: 5px;
+}
+.client .client_list .item .one {
+  height: 30px;
+  padding: 0 30px;
+  line-height: 30px;
+  overflow: hidden;
+}
+.client .client_list .item .one > span {
+  float: left;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.client .client_list .item .one .left {
+  width: 20%;
+  text-align: right;
+}
+.client .client_list .item .one .right {
+  padding-left: 15px;
+}
+.client .client_list .item_on .one {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.client .client_list .item_off .one {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.modal_dialog_clinet .one {
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0 30px;
+  line-height: 30px;
+  overflow: hidden;
+  position: relative;
+}
+.modal_dialog_clinet .one > span {
+  float: left;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.modal_dialog_clinet .one .item_1 {
+  width: 20%;
+  text-align: right;
+}
+.modal_dialog_clinet .one .item_2,
+.modal_dialog_clinet .one .item_3,
+.modal_dialog_clinet .one .item_4 {
+  width: 80%;
+  padding-left: 15px;
+}
+.modal_dialog_clinet .one .item_2 [type="text"],
+.modal_dialog_clinet .one .item_3 [type="text"],
+.modal_dialog_clinet .one .item_4 [type="text"] {
+  display: block;
+  height: 28px;
+}
+.modal_dialog_clinet .one .item_3 {
+  width: 40%;
+}
+.modal_dialog_clinet .one .item_4 {
+  width: 30%;
+}
+.modal_dialog_clinet .one .glyphicon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}

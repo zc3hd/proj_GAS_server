@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>GAS_server</title>
+  <link rel="stylesheet" href="../../scripts/libs/bootstrap_3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="./animate.css">
+  <link rel="stylesheet" href="./index.css">
+
+</head>
+
+<body>
+  <div class="container">
+    <!-- 基本配置项 -->
+    <div class="set_base">
+      <h1>周期基本配置</h1>
+      <div class="row">
+        <div class="item col-sm-2">
+          <input type="text" class="form-control" placeholder="提交日最小长度" data-toggle="tooltip" data-placement="top" title="提交日最小长度" id="cycle_conf_min">
+        </div>
+        <div class="item col-sm-2">
+          <input type="text" class="form-control" placeholder="一份周期长度" data-toggle="tooltip" data-placement="top" title="一份周期长度" id="cycle_conf_max">
+        </div>
+        <div class="item col-sm-2">
+          <input type="text" class="form-control" placeholder="总周数(*7)" data-toggle="tooltip" data-placement="top" title="总周数(*7)" id="cycle_conf_sum">
+        </div>
+        <div class="item col-sm-2">
+          <button type="button" class="btn btn-primary" id="cycle_conf">配置</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 具体周期数据日配置 -->
+    <div class="cycle">
+      <h1>
+        周期具体日配置
+      </h1>
+      <!-- 配置 -->
+      <div class="row">
+
+        <div class="item col-sm-2">
+          <button type="button" class="btn btn-primary" id="add">新增一份数据</button>
+        </div>
+        <div class="item col-sm-2">
+          <button type="button" class="btn btn-danger" id="del_all">删除过期数据</button>
+        </div>
+        <div class="item col-sm-2">
+          <button type="button" class="btn btn-danger" id="del_first">删除第一数据</button>
+        </div>
+        <div class="item col-sm-3 sum">
+          数据容器：<span id="data_container">0</span>
+        </div>
+        <div class="item col-sm-3 sum">
+          数据总量：<span id="data_length">0</span>
+        </div>
+
+      </div>
+
+      <!-- 显示 -->
+      <div class="cycle_data" id="cycle_data">
+        <!-- <div class="col col_in">
+          <div class="r r_old_0"></div>
+          <div class="r r_old_1"></div>
+        </div>
+        <div class="col col_in">
+          <div class="r r_new_0"></div>
+          <div class="r r_new_1"></div>
+        </div> -->
+      </div>
+
+
+    </div>
+
+    <!-- 用户端配置 -->
+    <div class="client">
+      <h1>
+        client配置
+      </h1>
+      <!-- div -->
+      <div class="row">
+        <div class="col-sm-2">
+          <button type="button" class="btn btn-primary" id="client_add">新增客户端配置</button>
+        </div>
+      </div>
+      <!-- client 列表 -->
+      <div class="client_list row" id="client_list">
+
+      </div>
+    </div>
+
+
+    <!-- 信息提示 Modal -->
+    <div class="modal fade bs-example-modal-sm modal_dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="modal_dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-body" id="modal_body">
+            <!-- 配置成功 -->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="modal fade bs-example-modal-sm modal_dialog_clinet" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" id="modal_dialog_clinet" data-backdrop="static">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">client配置</h4>
+          </div>
+          <div class="modal-body">
+            <div class="one">
+              <span class="item_1">名称</span>
+              <span class="item_2"><input type="text" class="form-control" id="cl_name" ></span>
+            </div>
+            <div class="one">
+              <span class="item_1">请求标识</span>
+              <span class="item_2"><input type="text" class="form-control" id="cl_flag" ></span>
+            </div>
+            <div class="one">
+              <span class="item_1">状态</span>
+              <span class="item_2">
+                <label>
+                  <input type="radio" name="status" value="on" checked> on
+                </label>
+                <label>
+                  <input type="radio" name="status" value="off"> off
+                </label>
+              </span>
+            </div>
+            <div class="one">
+              <span class="item_1">文件地址</span>
+              <span class="item_2"><input type="text" class="form-control" id="cl_filePath" ></span>
+            </div>
+
+
+
+            <div class="one">
+              <span class="item_1">内容数量 min</span>
+              <span class="item_4"><input type="text" class="form-control" id="cl_fileCont_min" ></span>
+              <span class="item_1">内容数量 max</span>
+              <span class="item_4"><input type="text" class="form-control" id="cl_fileCont_max" ></span>
+            </div>
+            <div class="one">
+              <span class="item_1">日提交数 min</span>
+              <span class="item_4"><input type="text" class="form-control" id="cl_dayPush_min" ></span>
+              <span class="item_1">日提交数 max</span>
+              <span class="item_4"><input type="text" class="form-control" id="cl_dayPush_max" ></span>
+            </div>
+
+            <div class="one add">
+              <span class="item_1">更新内容</span>
+              <span class="item_3">
+                <input type="text" class="form-control cl_fileCont_key" placeholder="key">
+              </span>
+              <span class="item_3">
+                <input type="text" class="form-control cl_fileCont_val" placeholder="val">
+              </span>
+              <div class="glyphicon glyphicon-plus"></div>
+            </div>
+
+
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" id="client_close">Close</button>
+            <button type="button" class="btn btn-primary" id="client_save">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+  </div>
+
+
+
+
+
+  <!-- 背景盒子 -->
+  <div class="bg_box" id="bg_box"></div>
+
+</body>
+<!-- common -->
+<script src="../../scripts/common/common.js" type="text/javascript"></script>
+<!-- JQ -->
+<script src="../../scripts/libs/jquery/jquery.min.js" type="text/javascript"></script>
+<!-- bs -->
+<script src="../../scripts/libs/bootstrap_3.3.2/js/bootstrap.min.js" type="text/javascript"></script>
+<!-- 3D盒子填充 -->
+<script src="./3d_box.js" type="text/javascript"></script>
+<!-- 测试数据 -->
+<script src="./test_data.js" type="text/javascript"></script>
+
+<script src="./index.js" type="text/javascript"></script>
+
+</html>

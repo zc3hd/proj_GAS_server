@@ -1,0 +1,161 @@
+/* 第一级盒子的动画 */
+@keyframes level_1_box_am {
+  0% {
+    transform: rotate3d(1, 1, 1, 0deg);
+  }
+  20% {
+    transform: rotate3d(1, 1, 0, 60deg);
+  }
+  40% {
+    transform: rotate3d(1, 0, 0, 120deg);
+  }
+  60% {
+    transform: rotate3d(0, 0, 0, 180deg);
+  }
+  80% {
+    transform: rotate3d(0, 1, 1, 240deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 1, 300deg);
+  }
+}
+/* 第一层级的盒子每个面 的动画*/
+@keyframes level_1_box_main {
+  0% {
+    background-color: rgba(255, 0, 0, 0.1);
+  }
+  100% {
+    background-color: rgba(255, 0, 0, 0.5);
+  }
+}
+@keyframes level_2_box_am {
+  0% {
+    transform: translateZ(100px) scale3d(0.5, 0.5, 0.5) rotateZ(0deg);
+  }
+  100% {
+    transform: translateZ(100px) scale3d(0.8, 0.8, 0.8) rotateZ(360deg);
+  }
+}
+@keyframes level_2_div_am {
+  0% {
+    background-color: rgba(0, 0, 255, 0.7);
+  }
+  50% {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  100% {
+    background-color: rgba(255, 0, 0, 0.7);
+  }
+}
+body {
+  background-color: #666;
+}
+@media screen and (max-width: 320px) {
+  body {
+    width: 320px;
+  }
+}
+.bg_box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -999;
+  perspective: 600px;
+  filter: blur(3px);
+  /* -----------------------------------------第一层盒子 */
+}
+.bg_box .box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  margin-left: -100px;
+  margin-top: -100px;
+  transform-style: preserve-3d;
+  animation: level_1_box_am 400s linear infinite alternate;
+}
+.bg_box .box .level_1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  line-height: 200px;
+  text-align: center;
+  font-size: 40px;
+  color: #000;
+  box-sizing: border-box;
+  transform-style: preserve-3d;
+  border: 3px solid #000;
+}
+.bg_box .box .level_1:nth-child(1) {
+  transform: rotateY(0deg) translateZ(100px);
+}
+.bg_box .box .level_1:nth-child(2) {
+  transform: rotateY(90deg) translateZ(100px);
+}
+.bg_box .box .level_1:nth-child(3) {
+  transform: rotateY(180deg) translateZ(100px);
+}
+.bg_box .box .level_1:nth-child(4) {
+  transform: rotateY(270deg) translateZ(100px);
+}
+.bg_box .box .level_1:nth-child(5) {
+  transform: rotateX(90deg) translateZ(100px);
+}
+.bg_box .box .level_1:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+.bg_box .box .level_1 ._box {
+  width: 200px;
+  height: 200px;
+  line-height: 200px;
+  transform: translateZ(100px) scale3d(0.5, 0.5, 0.5);
+  position: relative;
+  transform-style: preserve-3d;
+}
+.bg_box .box .level_1 ._box .level_2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.3);
+  text-align: center;
+  font-size: 60px;
+  font-weight: 800;
+  color: #fff;
+  animation: level_2_div_am 20s linear infinite alternate;
+  border: 2px solid #000;
+}
+.bg_box .box .level_1 ._box .level_2:nth-child(1) {
+  transform: rotateY(0deg) translateZ(100px);
+}
+.bg_box .box .level_1 ._box .level_2:nth-child(2) {
+  transform: rotateY(90deg) translateZ(100px);
+}
+.bg_box .box .level_1 ._box .level_2:nth-child(3) {
+  transform: rotateY(180deg) translateZ(100px);
+}
+.bg_box .box .level_1 ._box .level_2:nth-child(4) {
+  transform: rotateY(270deg) translateZ(100px);
+}
+.bg_box .box .level_1 ._box .level_2:nth-child(5) {
+  transform: rotateX(90deg) translateZ(100px);
+}
+.bg_box .box .level_1 ._box .level_2:nth-child(6) {
+  transform: rotateX(-90deg) translateZ(100px);
+}
+@media screen and (max-width: 767px) {
+  .bg_box {
+    transform: scale(0.5);
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .bg_box {
+    transform: scale(0.8);
+  }
+}

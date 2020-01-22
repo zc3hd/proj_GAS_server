@@ -1,0 +1,153 @@
+h1 {
+  color: #fff;
+}
+
+// 基本配置项
+.set_base {
+  .row {
+    .item {
+      margin-bottom: 3px;
+    }
+  }
+}
+
+// 具体周期数据日配置
+.cycle {
+  // 配置项
+  .row {
+    .item {
+      margin-bottom: 3px;
+    }
+    .sum {
+      font-size: 20px;
+      color: #fff;
+      text-align: center;
+    }
+  }
+  // 具体显示数据
+  .cycle_data{
+    background-color: rgba(255,255,255,0.9);
+    width: 100%;
+    overflow: hidden;
+    padding: 0 3px 10px 7px;
+    // 每一列
+    .col {
+      float: left;
+      margin-top: 10px;
+      padding: 2px;
+      .r {
+        width: 15px;
+        height: 15px;
+        background-color: #bdbdbd;
+        border-radius: 1px;
+        margin-top: 3px;
+        cursor: pointer;
+        transition: all 0.1s;
+      }
+      .r:first-child{
+        margin-top: 0px;
+      }
+      // 未来可以操作的数据
+      .r_new_1 {
+        background-color: #458a00;
+      }
+      // 过去不能操作的数据
+      .r_old_1 {
+        background-color: #707070;
+      }
+    }
+  }
+  
+}
+
+// 用户端配置
+.client {
+  .client_list {
+    .item {
+      margin-top: 5px;
+      .one {
+        height: 30px;
+        
+        padding: 0 30px;
+        line-height: 30px;
+        overflow: hidden;
+        >span {
+          float: left;
+          font-size: 12px;
+          font-weight: 800;
+          white-space: nowrap;
+        }
+        .left {
+          width: 20%;
+          text-align: right;
+          
+        }
+        .right {
+          padding-left: 15px;
+        }
+
+      }
+    }
+    .item_on {
+      .one {
+        background-color: rgba(255,255,255,0.9);
+      }
+     
+    }
+    .item_off {
+      .one {
+        background-color: rgba(255,255,255,0.3);
+      }
+    }
+    
+  }
+  
+}
+
+
+
+// 用户端窗口配置
+.modal_dialog_clinet {
+  .one {
+    height: 30px;
+    background-color: rgba(255,255,255,0.9);
+    padding: 0 30px;
+    line-height: 30px;
+    overflow: hidden;
+    position: relative;
+    >span {
+      float: left;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .item_1 {
+      width: 20%;
+      text-align: right;
+      
+    }
+    .item_2,.item_3,.item_4 {
+      width: 80%;
+      padding-left: 15px;
+      [type="text"] {
+        display: block;
+        height: 28px;
+      }
+    }
+    .item_3 {
+      width: 40%;
+    }
+    .item_4 {
+      width: 30%;
+    }
+    .glyphicon {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+
+  }
+  
+}
